@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# TradingFrontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 專案概述
 
-## Available Scripts
+TradingFrontend 是基於 React 的股票交易視覺化前端，提供金融市場數據的歷史與即時 K 線圖展示。
 
-In the project directory, you can run:
+## 主要功能
 
-### `npm start`
+* **K 線圖**：使用 ECharts（echarts-for-react）渲染蠟燭圖
+* **歷史數據**：透過 Axios 呼叫後端 API 查詢
+* **即時更新**：透過 STOMP/SockJS WebSocket 接收市場推送
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 技術
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **前端框架**：React 19.0.0
+* **資料視覺化**：ECharts (echarts-for-react)
+* **HTTP 請求**：Axios
+* **即時通訊**：@stomp/stompjs、SockJS-client
+* **建構工具**：Vite 或 Create React App（依專案設定）
 
-### `npm test`
+## 專案結構
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+TradingFrontend/
+├── public/
+├── src/
+│   ├── components/
+│   │   └── KLineChart.jsx
+│   ├── services/
+│   │   ├── api.js
+│   │   └── websocket.js
+│   ├── App.js
+│   └── index.js
+└── package.json
+```
 
-### `npm run build`
+## 安裝與執行
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **前置需求**：Node.js 16+、npm 或 yarn
+2. **複製專案**：
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```powershell
+   git clone https://github.com/CCW1210/TradingFrontend.git
+   cd TradingFrontend
+   ```
+3. **安裝套件**：
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```powershell
+   npm install
+   ```
+4. **啟動開發伺服器**：
 
-### `npm run eject`
+   ```powershell
+   npm start
+   ```
+5. **建置生產版本**：
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```powershell
+   npm run build
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 環境設定
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+請確認在 `src/services/api.js` 和 `src/services/websocket.js` 中設定：
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* 後端 REST API URL
+* WebSocket URL
